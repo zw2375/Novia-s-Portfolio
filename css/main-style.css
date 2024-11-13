@@ -1,0 +1,114 @@
+:root{
+  --cursor-color: #FFBC42;
+}
+body{
+  font-family: "Special Elite";
+  background-image: url("/materials/paperbackground.jpg");
+}
+.name-section {
+    text-align: center;
+    width: 90%;   
+}
+#name{
+  font-size: 4em;
+  color:#457B9D;
+  overflow: hidden;
+}
+#name:hover{
+  font-family: "Long Cang", cursive;
+  font-size: 6em;
+}
+
+.chinese-name,
+.english-name {
+  display: block;
+  overflow: hidden;
+  transition: all 400ms ease-in-out;
+}
+.english-name {
+  margin-top: 2%;
+  height: auto;
+  opacity: 1;
+  width: auto;
+}
+.chinese-name {
+  margin-top: 0%;
+  height: 0px;
+  opacity: 0;
+  width: 0px;
+}
+#name:hover .english-name {
+  height: 0px;
+  opacity: 0;
+  width: 0px;
+}
+#name:hover .chinese-name {
+  margin-top: -2%;
+  height: auto;
+  opacity: 1;
+  width: auto;
+  color: #457B9D;
+}
+/* drawings */
+.drawings{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  /* display: flex; */
+  /* flex-direction: flex-end; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.tags {
+  position: absolute;
+  color: #FFBC42;
+  font-size: 1.3em;
+  display: none; 
+  z-index: 3;
+  border-right: 1px solid var(--cursor-color); 
+  animation: 
+  blinking 1s steps(1,end) infinite,
+  typing 4s steps(40,end);
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+}
+
+@keyframes blinking {
+  0% {border-color: transparent}
+  50%{border-color: var(--cursor-color);}
+  100%{border-color: transparent}
+}
+@keyframes typing {
+  0% {max-width:0}
+  100%{max-width: 100%;}
+}
+#film-frame{
+  position: absolute;
+  width: 56%;
+  left:3%;
+  top:15%;
+}
+#walking-novia{
+  position: absolute;
+  top:27%;
+  left:20%;
+}
+#earth-canvas{
+  position: absolute;
+  width: 50%;
+  max-width: 900px;
+  top:50%;
+  left:5%;
+  height: auto;
+  z-index: -1;
+}
+#stars-canvas{
+  position: absolute;
+  top: 25%;
+  left:5%;
+}
