@@ -3,16 +3,18 @@
 }
 body{
   font-family: "Special Elite";
-  background-image: url("/materials/paperbackground.jpg");
+  background-image: url("/materials/paper.png");
 }
 .name-section {
     text-align: center;
     width: 90%;   
+    /* display: flex; */
 }
 #name{
   font-size: 4em;
   color:#457B9D;
   overflow: hidden;
+  text-align: center;
 }
 #name:hover{
   font-family: "Long Cang", cursive;
@@ -49,24 +51,12 @@ body{
   width: auto;
   color: #457B9D;
 }
-/* drawings */
-.drawings{
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  /* display: flex; */
-  /* flex-direction: flex-end; */
-  /* align-items: center; */
-  /* justify-content: center; */
-}
+
+
 .tags {
   position: absolute;
   color: #FFBC42;
-  font-size: 1.3em;
+  font-size: 1.7em;
   display: none; 
   z-index: 3;
   border-right: 1px solid var(--cursor-color); 
@@ -93,22 +83,43 @@ body{
   left:3%;
   top:15%;
 }
+
+.drawings{
+  width: 900px;
+  height: 700px;
+  margin-left: 3%;
+  margin-top: 2%;
+  position: relative; /* Ensures children are positioned relative to this container */
+
+}
 #walking-novia{
   position: absolute;
-  top:27%;
-  left:20%;
+  top:6%;
+  left:30%;
 }
 #earth-canvas{
   position: absolute;
-  width: 50%;
-  max-width: 900px;
-  top:50%;
-  left:5%;
+  width: 800px;
+  top:33%;
+  left:0;
   height: auto;
   z-index: -1;
 }
 #stars-canvas{
   position: absolute;
-  top: 25%;
   left:5%;
+}
+#line-canvas{
+  position: absolute;
+  bottom:1%;
+  left:5%;
+}
+.introduction{
+  width: 40%;
+  left: 60%;
+  top:20%;
+  font-size: 2em;
+  line-height: 1em;
+  text-align: left;
+  position: absolute;
 }

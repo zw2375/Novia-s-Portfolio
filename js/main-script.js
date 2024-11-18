@@ -60,10 +60,12 @@ function createTooltip(starId, tooltipText) {
     function toggleTooltip(event) {
         tooltipVisible = !tooltipVisible;
         if (tooltipVisible) {
+            // const starRect = star.getBoundingClientRect();
+            // const introRect = document.querySelector.getBoundingClientRect();
             const x = event.pageX;
             const y = event.pageY;
-            tooltip.style.left = `${x + 35 }px`; 
-            tooltip.style.top = `${y - 15}px`;  
+            tooltip.style.left = `${x+25 }px`; 
+            tooltip.style.top = `${y - 100}px`;  
             tooltip.style.display = 'block';   
         } else {
             tooltip.style.display = 'none'; 
@@ -92,10 +94,11 @@ function drawStar(cx, cy, spikes, outerRadius, innerRadius, options = {},id,tagt
     starsGroup.appendChild(curStar);
     createTooltip(id,tagtxt);
 }
-drawStar(80, 150, 5, 20, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'zigzag'},"interactive","Interaction Design");
+drawStar(20, 150, 5, 20, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'zigzag'},"interactive","Interaction Design");
 drawStar(530, 200, 5, 30, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'zigzag'},"web","Web Development");
 drawStar(450, 50, 5, 25, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'zigzag'},"software","Software Engineering");
 
+// starsGroup.appendChild(landLine);
 // switching between novia walking pictures
 var curImg = 0;
 function switchImg(){
@@ -110,28 +113,38 @@ function switchImg(){
     }
 }
 setInterval(switchImg,500);
-const filmFrame = document.getElementById("film-frame");
-const rcFrame = rough.svg(filmFrame);
-// generate film frame
-fetch('materials/frame.svg') 
-    .then(response => response.text())
-    .then(svgText => {
-      const parser = new DOMParser();
-      const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-      const paths = svgDoc.querySelectorAll("path");
-      // Draw each path with Rough.js
-      paths.forEach(originalPath => {
-        const d = originalPath.getAttribute("d"); // Get path data
-        const options = {
-          stroke: originalPath.getAttribute("stroke") || "#000",
-          strokeWidth:  5,
-          fill: originalPath.getAttribute("fill") || "none",
-          roughness: 1.7, 
-          bowing: 2,    
-          fillStyle:"dashed"
-        };
-        const roughPath = rcFrame.path(d, options);
-        filmFrame.appendChild(roughPath);
-      });
-    })
-    .catch(error => console.error("Error loading SVG:", error));
+
+const lineCanvas = document.getElementById("line-canvas");
+const rcLine = rough.svg(lineCanvas);
+const landLine = rcLine.line(0,10,740,10,{
+    roughness: 3, 
+    stroke: 'black', 
+    strokeWidth: 5,
+})
+lineCanvas.appendChild(landLine);
+// const filmFrame = document.getElementById("film-frame");
+// const rcFrame = rough.svg(filmFrame);
+// // generate film frame
+// fetch('materials/frame.svg') 
+//     .then(response => response.text())
+//     .then(svgText => {
+//       const parser = new DOMParser();
+//       const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+//       const paths = svgDoc.querySelectorAll("path");
+//       // Draw each path with Rough.js
+//       paths.forEach(originalPath => {
+//         const d = originalPath.getAttribute("d"); // Get path data
+//         const options = {
+//           stroke: originalPath.getAttribute("stroke") || "#000",
+//           strokeWidth:  5,
+//           fill: originalPath.getAttribute("fill") || "none",
+//           roughness: 1.7, 
+//           bowing: 2,    
+//           fillStyle:"dashed"
+//         };
+//         const roughPath = rcFrame.path(d, options);
+//         filmFrame.appendChild(roughPath);
+//       });
+//     })
+//     .catch(error => console.error("Error loading SVG:", error));
+
