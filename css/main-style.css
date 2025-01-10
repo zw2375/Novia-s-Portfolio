@@ -4,17 +4,45 @@
 body{
   font-family: "Special Elite";
   background-image: url("/materials/paper.png");
+  overflow-y: hidden;
 }
-.name-section {
+.header{
+  display: relative;
+}
+.nav-bar{
+  position: absolute;
+  font-size: 30px;
+  top:-15px;
+  left:15px;
+  cursor: pointer;
+}
+.nav-bar a {
+  text-decoration: none; 
+  color: inherit; 
+}
+.about-section {
+  position: relative;
     text-align: center;
     width: 90%;   
-    /* display: flex; */
+}
+.introduction{
+  width: 600px;
+  left:880px;
+  top:90px;
+  font-size: 25px;
+  line-height: 1em;
+  position: absolute;
+  text-align: justify;
 }
 #name{
   font-size: 4em;
-  color:#457B9D;
+  color:#000cff;
   overflow: hidden;
-  text-align: center;
+  position: absolute;
+  text-align: right;
+  top: 30px;
+  left: 500px;
+  width: 1000px;
 }
 #name:hover{
   font-family: "Long Cang", cursive;
@@ -49,16 +77,17 @@ body{
   height: auto;
   opacity: 1;
   width: auto;
-  color: #457B9D;
+  color: #000cff;
 }
 
 
 .tags {
   position: absolute;
   color: #FFBC42;
+  background-color: white;
   font-size: 1.7em;
   display: none; 
-  z-index: 3;
+  z-index: 20;
   border-right: 1px solid var(--cursor-color); 
   animation: 
   blinking 1s steps(1,end) infinite,
@@ -88,7 +117,7 @@ body{
   width: 900px;
   height: 700px;
   margin-left: 3%;
-  margin-top: 2%;
+  margin-top: 8%;
   position: relative; /* Ensures children are positioned relative to this container */
 
 }
@@ -103,23 +132,15 @@ body{
   top:33%;
   left:0;
   height: auto;
-  z-index: -1;
 }
 #stars-canvas{
   position: absolute;
   left:5%;
+
 }
+
 #line-canvas{
   position: absolute;
   bottom:1%;
   left:5%;
-}
-.introduction{
-  width: 40%;
-  left: 60%;
-  top:20%;
-  font-size: 2em;
-  line-height: 1em;
-  text-align: left;
-  position: absolute;
 }

@@ -2,3 +2,6 @@ body{
     font-family: "Special Elite";
     background-image: url("/materials/paper.png");
 }
+.project_name{
+    display: flex;
+}

@@ -1,22 +1,28 @@
+document.getElementById("back-icon").addEventListener("click",()=>{
+    window.location.href = "work.html";
+})
+
+
 /*
     Create Annotation diagram
 */
 
 const interactCanvas = document.getElementById("robot-cat-interact");
 const rcInteract  = rough.svg(interactCanvas);
-const bellyLine1 = rcInteract.line(250,450,260,600,{
+let intervalId;
+const bellyLine1 = rcInteract.line(250,380,260,530,{
     stroke: '#6b6b6b',
     roughness: 3,
     strokeWidth: 3
 });
 
-const bellyLine2 = rcInteract.line(260,600,400,600,{
+const bellyLine2 = rcInteract.line(260,530,400,530,{
     stroke: '#6b6b6b',
     roughness: 3,
     strokeWidth: 3
 });
 
-const bellyCircle = rcInteract.circle(250,450,40,{
+const bellyCircle = rcInteract.circle(250,380,40,{
     stroke: '#617EFF',
     roughness: 2,
     fillWeight:5,
@@ -25,19 +31,19 @@ const bellyCircle = rcInteract.circle(250,450,40,{
     fillStyle:"solid"
 });
 
-const bubbleLine1 = rcInteract.line(470,520,470,570,{
+const bubbleLine1 = rcInteract.line(470,450,470,500,{
     stroke: '#6b6b6b',
     roughness: 2,
     strokeWidth: 3
 });
 
-const bubbleLine2 = rcInteract.line(470,570,500,570,{
+const bubbleLine2 = rcInteract.line(470,500,500,500,{
     stroke: '#6b6b6b',
     roughness: 3,
     strokeWidth: 3
 });
 
-const bubbleCircle = rcInteract.circle(460,490,70,{
+const bubbleCircle = rcInteract.circle(460,410,70,{
     stroke: '#617EFF',
     roughness: 2,
     fillWeight:5,
@@ -46,7 +52,7 @@ const bubbleCircle = rcInteract.circle(460,490,70,{
     fillStyle:"solid"
 });
 
-const ledCircle = rcInteract.circle(370,180,30,{
+const ledCircle = rcInteract.circle(370,110,30,{
     stroke: '#617EFF',
     roughness: 2,
     fillWeight:5,
@@ -55,18 +61,18 @@ const ledCircle = rcInteract.circle(370,180,30,{
     fillStyle:"solid"
 });
 
-const ledFrame = rcInteract.rectangle(530, 70, 370, 250, {
+const ledFrame = rcInteract.rectangle(530, 15, 370, 250, {
     strokeWidth: 3,
     roughness: 2,
   });
 
-const ledLine1 = rcInteract.line(370,180,430,110,{
+const ledLine1 = rcInteract.line(370,110,430,40,{
     stroke: '#6b6b6b',
     roughness: 2,
     strokeWidth: 3
 });
 
-const ledLine2 = rcInteract.line(430,110,530,110,{
+const ledLine2 = rcInteract.line(430,40,530,40,{
     stroke: '#6b6b6b',
     roughness: 2,
     strokeWidth: 3
@@ -74,36 +80,36 @@ const ledLine2 = rcInteract.line(430,110,530,110,{
 
 const bellyText = document.createElementNS("http://www.w3.org/2000/svg", "text");
 bellyText.setAttribute("x", 410); 
-bellyText.setAttribute("y", 605);
+bellyText.setAttribute("y", 535);
 bellyText.textContent = "Hover to pet its belly";
 
 const boubleText = document.createElementNS("http://www.w3.org/2000/svg", "text");
 boubleText.setAttribute("x", 500); 
-boubleText.setAttribute("y", 570);
+boubleText.setAttribute("y", 500);
 boubleText.textContent = "Hover to help adding bubble soap";
 
 const componentText = document.createElementNS("http://www.w3.org/2000/svg", "text");
 componentText.setAttribute("x", 550); 
-componentText.setAttribute("y", 100);
+componentText.setAttribute("y", 50);
 componentText.setAttribute("font-size", "24px");
 componentText.textContent = "LED Panel Display";
 
 const indicationText = document.createElementNS("http://www.w3.org/2000/svg", "text");
 indicationText.setAttribute("x", 550); 
-indicationText.setAttribute("y", 260);
+indicationText.setAttribute("y", 190);
 indicationText.textContent = "Indication:";
 indicationText.setAttribute("id","indication-text");
 
 const emotionText = document.createElementNS("http://www.w3.org/2000/svg", "text");
 emotionText.setAttribute("x", 550); 
-emotionText.setAttribute("y", 290);
+emotionText.setAttribute("y", 220);
 emotionText.textContent = "I am feeling unhappy, can you pet me?";
 emotionText.setAttribute("id","emotion-text");
 
 const emotionImg = document.createElementNS("http://www.w3.org/2000/svg", "image");
 emotionImg.setAttributeNS(null, "href", "/materials/sad-face.png"); 
 emotionImg.setAttributeNS(null, "x", "660"); 
-emotionImg.setAttributeNS(null, "y", "130");
+emotionImg.setAttributeNS(null, "y", "70");
 emotionImg.setAttributeNS(null, "width", "100px"); 
 emotionImg.setAttributeNS(null, "height", "100px"); 
 emotionImg.setAttribute("id","emotion-indicator");
@@ -136,7 +142,7 @@ bubbleCircle.setAttribute("id","bubbleCircle");
     Transition between interactions
 */
 let emotionStatus = 'unhappy';
-
+displayEmotion("emotionStatus");
 /*
  belly circle interaction 
 */
@@ -161,7 +167,7 @@ bellyCircle.addEventListener('mouseout', () => {
             displayEmotion(emotionStatus);
             setTimeout(()=>{
                 emotionStatus = 'bubble';
-                displayEmotion('bubble')
+                displayEmotion('bubble');
             },4000); 
         },2000);
         
@@ -191,6 +197,10 @@ bubbleCircle.addEventListener('mouseout', () => {
             setTimeout(()=>{
                 emotionStatus = 'unhappy';
                 displayEmotion(emotionStatus);
+                serTimeout(()=>{
+                emotionStatus = 'bubble';
+                displayEmotion('bubble');
+                },3000);
             },10000);
         },5000);
     }
@@ -200,11 +210,11 @@ bubbleCircle.addEventListener('mouseout', () => {
 function displayEmotion(emotionStatus){
     var imgSrc;
     var txtContent;
+    if (intervalId){
+        clearInterval(intervalId);
+    }
+    
     switch (emotionStatus){
-        case "unhappy":
-            imgSrc = '/materials/sad-face.png';
-            txtContent = "I am feeling unhappy, can you pet me?";
-            break;
         case "happy":
             imgSrc = '/materials/happy-face.png';
             txtContent = "Hehehe, thank you!!";
@@ -213,9 +223,22 @@ function displayEmotion(emotionStatus){
             imgSrc = '/materials/bubble.png';
             txtContent = "Now I wanna blow some bubbles";
             break;
+        case "unhappy":
+            imgSrc = '/materials/sad-face.png';
+            txtContent = "I am feeling unhappy, can you pet me?";
+            break;
+       
+            // const face_img = '/materials/sad-face.png';
+            // const hand_img = '/materials/hand.png'; // Second variant image
+            // const face_txt = "I am feeling unhappy";
+            // const hand_txt = "Can you pet me?";
+            
+            
     }
-    document.getElementById("emotion-indicator").setAttributeNS(null, "href", imgSrc); ;
-    document.getElementById("emotion-text").textContent = txtContent;
+    if (imgSrc) {
+        document.getElementById("emotion-indicator").setAttributeNS(null, "href", imgSrc);
+        document.getElementById("emotion-text").textContent = txtContent;
+    }
 }
 
 function showBubbles(){
@@ -244,11 +267,11 @@ function showBubbles(){
         function makeBubblesAppear() {
             bubbles.forEach((bubble, index) => {
                 setTimeout(() => {
-                    bubblesCanvas.appendChild(bubble); // Add bubble to canvas
-                    bubble.style.opacity = 0; // Initially hidden
-                    bubble.style.transition = "opacity 0.5s"; // Smooth fade
-                    bubble.style.opacity = 1; // Fade in
-                }, index * 500); // Staggered appearance
+                    bubblesCanvas.appendChild(bubble); 
+                    bubble.style.opacity = 0; 
+                    bubble.style.transition = "opacity 0.5s"; 
+                    bubble.style.opacity = 1; 
+                }, index * 500); 
             });
         }
 

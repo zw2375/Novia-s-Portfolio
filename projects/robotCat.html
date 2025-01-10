@@ -9,34 +9,50 @@
 <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Long+Cang&family=Special+Elite&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/template.css">
 <style>
-    .project{
+    .project_name{
         display: flex;
-
     }
     .project_details{
-        display: flex;
-        width: 1000px;
+        position: relative;
+        width: 1200px;
+    }
+    .project_description{
+        position: absolute;
+        width: 450px;
+        left: 1000px;
+        top:100px;
+    }
+    .project_description p{
+        line-height: 25px;
+        
     }
     #emotion-indicator{
         width: 100px;
         height: 100px;
     }
-    .image-container{
-        margin-left: -60px;
-    }
 
-    .image-container p {
-        font-size: 18px; /* Set font size for the text */
-        color: #333; /* Optional: Set a dark color for readability */
-    }
-    
     #digital-cat-face{
+        position:absolute;
+        left:600px; 
+        top:270px;
+    }
+    #robot-cat-interact{
         position:absolute;
         left:600px; 
         top:340px;
     }
     h1{
         font-size: 40px;
+    }
+    #back-icon{
+        position: absolute;
+        right:10px;
+        top:10px;
+        height:80px;
+        cursor: pointer;
+    }
+    #cat-video-button{
+
     }
 </style>
 
@@ -48,13 +64,14 @@
 
     <div class = "project_name">
         <h1>Robotic Pet Cat</h1>
+        <p>2021</p>
     </div>
-    <div class = "project">
+
     <div class = "project_details">
         <div class = "project-interaction">
             <div id = "interactive-cat">
                 <img id = "robot-cat" src="/materials/cat.png" alt="robot cat" height="500">
-                <svg id = "robot-cat-interact"width="950" height="700" style="position: absolute; top: 0; left: 0;">
+                <svg id = "robot-cat-interact"width="1250" height="700" style="position: absolute; top: 0; left: 0;">
                 </svg>
             </div>
             <svg id="digital-cat-face" xmlns="http://www.w3.org/2000/svg" width = "200"viewBox="0 0 512 512">
@@ -103,13 +120,21 @@
                 
             </svg>
         </div>
-         </div>
-        <div class = "project_description">
-            <h2>Project Idea</h2>
-            <p>This is a physical pet cat designed for people who </p>
-        </div>
-        <div class = "project_implementation"></div>
     </div>
+    <div class = "project_description">
+        <h2>Project Idea</h2>
+        <p>While having a pet in video gams can entertaining, the lack of physical interaction may feel less fulfilling. 
+            But taking care of a real pet requires time and efforts that might not be feasible for everyone.
+            The robotic pet cat is an interacrive project designed to bridge the gap between these two experiences.</p>
+        <h2>Project Implementation</h2>
+        <p><b>Servos</b> -- move the cat's tail and eyebrows. </p>
+        <p><b>Fan</b> -- will turn on when the cat wants to blow the bubbles. </p>
+        <p><b>LED panel</b> -- display the cat's emotions and needs. </p>
+        <p><b>Arduino</b> -- positioned inside the cat and control physical components mentioned above.</p>
+    </div>
+    <button id = "cat-video-button">Click to see the interaction in real life!</button>
+    <div class = "project_implementation"></div>
+    <img id = "back-icon" src = "/materials/back-icon.png">
     <script src="/js/cat-script.js"></script>
 </body>
 </html>

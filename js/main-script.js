@@ -45,10 +45,47 @@ rotateSVG();
 // generate stars
 const starsCanvas = document.getElementById('stars-canvas')
 const rcStars = rough.svg(starsCanvas);
+
+// const triangleBg = rcStars.polygon([[100, 130], [190, 40], [210, 240]],{
+//     fill: '#000cff',
+//     fillStyle:"cross-hatch",
+//     roughness: 4,
+//     fillWeight:5,
+//     strokeWidth: 4
+// });
+// const circle1Bg  = rcStars.circle(190,200,30,{
+//     fill: '#000CFF',
+//     fillStyle:"solid",
+//     stroke: '#000CFF',
+//     roughness: 5,
+//     fillWeight:5,
+//     strokeWidth: 4
+// });
+// const circle2Bg  = rcStars.circle(90,300,70,{
+//     fill: '#000CFF',
+//     fillStyle:"solid",
+//     stroke: '#000CFF',
+//     roughness: 7,
+//     fillWeight:5,
+//     strokeWidth: 4
+// });
+// const circle3Bg  = rcStars.circle(50,70,90,{
+//     fill: '#000CFF',
+//     fillStyle:"solid",
+//     stroke: '#000CFF',
+//     roughness: 7,
+//     fillWeight:5,
+//     strokeWidth: 4
+// });
+// starsCanvas.appendChild(triangleBg);
+// starsCanvas.appendChild(circle1Bg);
+// starsCanvas.appendChild(circle2Bg);
+// starsCanvas.appendChild(circle3Bg);
 const starsGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+starsGroup.setAttribute("id", "starsGroup");
 starsCanvas.appendChild(starsGroup);
 // helper function to generate text shown next to the star
-function createTooltip(starId, tooltipText) {
+function createTooltip(starId, tooltipText,cx,cy) {
     const star = document.getElementById(starId);
     let tooltipVisible = false;
     // Create a tooltip element
@@ -62,10 +99,10 @@ function createTooltip(starId, tooltipText) {
         if (tooltipVisible) {
             // const starRect = star.getBoundingClientRect();
             // const introRect = document.querySelector.getBoundingClientRect();
-            const x = event.pageX;
-            const y = event.pageY;
-            tooltip.style.left = `${x+25 }px`; 
-            tooltip.style.top = `${y - 100}px`;  
+            // const x = event.pageX;
+            // const y = event.pageY;
+            tooltip.style.left = `${cx+75 }px`; 
+            tooltip.style.top = `${cy -5 }px`;  
             tooltip.style.display = 'block';   
         } else {
             tooltip.style.display = 'none'; 
@@ -91,14 +128,15 @@ function drawStar(cx, cy, spikes, outerRadius, innerRadius, options = {},id,tagt
     var curStar = rcStars.polygon(starPoints, options);
     curStar.setAttribute("id",id)
     curStar.style.cursor = "pointer";
+    curStar.style.zIndex = "40";
     starsGroup.appendChild(curStar);
-    createTooltip(id,tagtxt);
+    createTooltip(id,tagtxt,cx,cy);
 }
-drawStar(20, 150, 5, 20, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'zigzag'},"interactive","Interaction Design");
-drawStar(530, 200, 5, 30, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'zigzag'},"web","Web Development");
-drawStar(450, 50, 5, 25, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'zigzag'},"software","Software Engineering");
+drawStar(20, 150, 5, 20, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'solid'},"interactive","Interaction Design");
+drawStar(530, 200, 5, 30, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'solid'},"web","Web Development");
+drawStar(450, 50, 5, 25, 10, { fill: '#FFBC42', roughness: 1, stroke: '#FFBC42', strokeWidth: 4, fillStyle: 'solid'},"software","Software Engineering");
 
-// starsGroup.appendChild(landLine);
+
 // switching between novia walking pictures
 var curImg = 0;
 function switchImg(){
@@ -122,29 +160,3 @@ const landLine = rcLine.line(0,10,740,10,{
     strokeWidth: 5,
 })
 lineCanvas.appendChild(landLine);
-// const filmFrame = document.getElementById("film-frame");
-// const rcFrame = rough.svg(filmFrame);
-// // generate film frame
-// fetch('materials/frame.svg') 
-//     .then(response => response.text())
-//     .then(svgText => {
-//       const parser = new DOMParser();
-//       const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-//       const paths = svgDoc.querySelectorAll("path");
-//       // Draw each path with Rough.js
-//       paths.forEach(originalPath => {
-//         const d = originalPath.getAttribute("d"); // Get path data
-//         const options = {
-//           stroke: originalPath.getAttribute("stroke") || "#000",
-//           strokeWidth:  5,
-//           fill: originalPath.getAttribute("fill") || "none",
-//           roughness: 1.7, 
-//           bowing: 2,    
-//           fillStyle:"dashed"
-//         };
-//         const roughPath = rcFrame.path(d, options);
-//         filmFrame.appendChild(roughPath);
-//       });
-//     })
-//     .catch(error => console.error("Error loading SVG:", error));
-
