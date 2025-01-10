@@ -71,7 +71,7 @@ display: none;  /* Safari and Chrome */
     height: 250px;
 }
 #vision-drawn{
-    cursor:url('/materials/eye.cur'), auto;
+    cursor:url('../materials/eye.cur'), auto;
 }
 #cat-txt {
     left:110px;
