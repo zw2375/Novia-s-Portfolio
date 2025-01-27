@@ -191,7 +191,7 @@ bubbleCircle.addEventListener('mouseenter', () => {
         bubbleCircle.setAttribute('opacity', '0.5'); 
         showBubbles(); 
         emotionStatus = 'happy';
-        bubbleCircle.style.cursor ="url('/materials/soap.cur'), auto";
+        bubbleCircle.style.cursor ="url('../materials/soap.cur'), auto";
     }else{
         bubbleCircle.style.cursor = "not-allowed";
     }
@@ -224,15 +224,15 @@ function displayEmotion(emotionStatus){
     
     switch (emotionStatus){
         case "happy":
-            imgSrc = '/materials/happy-face.png';
+            imgSrc = '../materials/happy-face.png';
             txtContent = "Hehehe, thank you!!";
             break;
         case "bubble":
-            imgSrc = '/materials/bubble.png';
+            imgSrc = '../materials/bubble.png';
             txtContent = "Now I wanna blow some bubbles";
             break;
         case "unhappy":
-            imgSrc = '/materials/sad-face.png';
+            imgSrc = '../materials/sad-face.png';
             txtContent = "I am feeling unhappy, can you pet me?";
             break;
        

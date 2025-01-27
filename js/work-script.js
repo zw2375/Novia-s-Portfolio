@@ -6,7 +6,7 @@ const elementsConfig = {
         txt: document.getElementById("vision-txt"),
         hoverImg: "../materials/vision-drawn2.png",
         defaultImg: "../materials/vision-drawn.png",
-        cursor: "url('/materials/eye.cur'), auto",
+        cursor: "url('../materials/eye.cur'), auto",
         clickAction: () => window.location.href = "../projects/vision.html",
     },
     cat: {
