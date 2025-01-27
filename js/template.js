@@ -1,8 +1,8 @@
-if (window.location.hostname === 'zw2375.github.io') {
-    document.querySelector('base').setAttribute('href', '/Novia-s-Portfolio/');
-} else {
-    document.querySelector('base').setAttribute('href', '/');
-}
+// if (window.location.hostname === 'zw2375.github.io') {
+//     document.querySelector('base').setAttribute('href', '/Novia-s-Portfolio/');
+// } else {
+//     document.querySelector('base').setAttribute('href', '/');
+// }
 if(document.getElementById("back-icon")){
     document.getElementById("back-icon").addEventListener("click",()=>{
         window.location.href = "../projects/work.html";
