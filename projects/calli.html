@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Long+Cang&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/template.css">
+    <base href="/" />
+<style>
+    #vision_description{
+        top:50px;
+    }
+    .project_details{
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        width: 1000px;
+    }
+    #vision-video {
+        margin-bottom: 10px; /* Adds space between the video and button */
+    }
+    #replayButton{
+        display: none;
+    }
+</style>
+
+<title>Vision</title>
+</head>
+<body >
+    <script src="https://cdn.jsdelivr.net/npm/roughjs/bundled/rough.js"></script>
+    <script src="https://unpkg.com/svg2roughjs/dist/svg2roughjs.umd.min.js"></script>
+
+    <div class = "project_name">
+        <h1>Vision</h1>
+        <p class = "year">Year: 2021 </p>
+        <p class = "team_info">Team: Zhinuo Wang, Xiaorong Tian</p>
+    </div>
+
+    <div class = "project_details">
+        <video id="vision-video"width="800"  autoplay>
+            <source src="/materials/Vision.MP4" type="video/mp4" />
+        </video>
+        <button id="replayButton" class="btn">Click to Replay</button>
+    </div>
+    <div class = "project_description" id = "vision_description">
+        <h2>Project Idea</h2>
+        <p>Vision is an interactive project designed to provide an immersive experience that explores 
+            and addresses the topic of appearance anxiety.</p>
+        <p>The character on the screen, wearing a hat, mirrors the user's movements as if it were a 
+            reflection of the user. Initially, the character appears cheerful. However, after the user 
+            takes a picture with the camera, a crowd suddenly appears behind the character, staring 
+            and whispering about them. The title, Vision, serves as a reminder that appearance anxiety 
+            is merely a distorted perception. </p>
+        <h2>Project Implementation</h2>
+        <p><b>Servos</b> -- move the cat's tail and eyebrows. </p>
+        <p><b>Fan</b> -- will turn on when the cat wants to blow the bubbles. </p>
+        <p><b>LED panel</b> -- display the cat's emotions and needs. </p>
+        <p><b>Arduino</b> -- positioned inside the cat and control physical components mentioned above.</p>
+        <button id="open-btn"class="btn">Click to see the user interaction illustration!</button>
+    </div>
+   
+    <!-- <a id >Click to see the interaction in real life!</a> -->
+    <div class = "project_video"></div>
+    <img id = "back-icon" src = "/materials/back-icon.png">
+    <div id="video-popup" class="hidden">
+        <div id="popup-content">
+            <button id="close-btn">&times;</button>
+            <video width= "1000px"controls>
+                <source src="/materials/vision-user.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+   
+    <script type="text/javascript">
+        const video = document.getElementById('vision-video');
+        const replayButton = document.getElementById('replayButton');
+
+        video.controls = false;
+
+        video.addEventListener('ended', () => {
+            replayButton.style.display = 'inline-block';
+        });
+
+        replayButton.addEventListener('click', () => {
+            video.currentTime = 0; // Restart video
+            video.play();
+            replayButton.style.display = 'none';
+        });
+
+    </script>
+    <script src="/js/template.js"></script>
+</body>
+</html>

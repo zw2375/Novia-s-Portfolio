@@ -5,69 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Long+Cang&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/template.css">
-<style>
-    .project_name{
-        display: flex;
-    }
-    .project_details{
-        position: relative;
-        width: 1200px;
-    }
-    .project_description{
-        position: absolute;
-        width: 450px;
-        left: 1000px;
-        top:100px;
-    }
-    .project_description p{
-        line-height: 25px;
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Long+Cang&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/template.css">
+    <base href="/" />
+    <style>
+        /* .project_name{
+            display: flex;
+        }
+        */
+        #cat_project_details{
+            position: relative;
+            width: 1200px;
+        }
+        /*
+        .project_description{
+            position: absolute;
+            width: 450px;
+            left: 1000px;
+            top:100px;
+        }
+        .project_description p{
+            line-height: 25px;
+            
+        } */
+        #emotion-indicator{
+            width: 100px;
+            height: 100px;
+        }
+
+        #digital-cat-face{
+            position:absolute;
+            left:600px; 
+            top:270px;
+        }
+        #robot-cat-interact{
+            position:absolute;
+            left:600px; 
+            top:340px;
+        }
         
-    }
-    #emotion-indicator{
-        width: 100px;
-        height: 100px;
-    }
+    </style>
 
-    #digital-cat-face{
-        position:absolute;
-        left:600px; 
-        top:270px;
-    }
-    #robot-cat-interact{
-        position:absolute;
-        left:600px; 
-        top:340px;
-    }
-    h1{
-        font-size: 40px;
-    }
-    #back-icon{
-        position: absolute;
-        right:10px;
-        top:10px;
-        height:80px;
-        cursor: pointer;
-    }
-    #cat-video-button{
-
-    }
-</style>
-
-<title>Interactive Pet Cat</title>
+    <title>Interactive Pet Cat</title>
 </head>
-<body>
+<body >
     <script src="https://cdn.jsdelivr.net/npm/roughjs/bundled/rough.js"></script>
     <script src="https://unpkg.com/svg2roughjs/dist/svg2roughjs.umd.min.js"></script>
 
     <div class = "project_name">
         <h1>Robotic Pet Cat</h1>
-        <p>2021</p>
+        <p class = "year">Year: 2021 </p>
+        <p class = "team_info">Team: Zhinuo Wang, Xiaorong Tian</p>
     </div>
 
-    <div class = "project_details">
+    <div  id = "cat_project_details">
         <div class = "project-interaction">
             <div id = "interactive-cat">
                 <img id = "robot-cat" src="/materials/cat.png" alt="robot cat" height="500">
@@ -131,10 +123,22 @@
         <p><b>Fan</b> -- will turn on when the cat wants to blow the bubbles. </p>
         <p><b>LED panel</b> -- display the cat's emotions and needs. </p>
         <p><b>Arduino</b> -- positioned inside the cat and control physical components mentioned above.</p>
+        <button id="open-btn"class="btn">Click to see the interaction in real life!</button>
     </div>
-    <button id = "cat-video-button">Click to see the interaction in real life!</button>
-    <div class = "project_implementation"></div>
+   
+    <!-- <a id >Click to see the interaction in real life!</a> -->
+    <div class = "project_video"></div>
     <img id = "back-icon" src = "/materials/back-icon.png">
+    <div id="video-popup" class="hidden">
+        <div id="popup-content">
+            <button id="close-btn">&times;</button>
+            <video id = "cat-video" controls>
+                <source src="/materials/cat-video.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+   
     <script src="/js/cat-script.js"></script>
+    <script src="js/template.js"></script>
 </body>
 </html>

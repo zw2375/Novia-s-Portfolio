@@ -1,7 +1,15 @@
-document.getElementById("back-icon").addEventListener("click",()=>{
-    window.location.href = "work.html";
-})
+// document.getElementById("back-icon").addEventListener("click",()=>{
+//     window.location.href = "work.html";
+// })
 
+// document.getElementById('open-btn').addEventListener('click', function() {
+//     document.getElementById('video-popup').classList.remove('hidden');
+// });
+
+// document.getElementById('close-btn').addEventListener('click', function() {
+//     console.log("clicked")
+//     document.getElementById('video-popup').classList.add('hidden');
+// });
 
 /*
     Create Annotation diagram

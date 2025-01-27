@@ -7,6 +7,7 @@ const elementsConfig = {
         hoverImg: "../materials/vision-drawn2.png",
         defaultImg: "../materials/vision-drawn.png",
         cursor: "url('/materials/eye.cur'), auto",
+        clickAction: () => window.location.href = "../projects/vision.html",
     },
     cat: {
         pic: document.getElementById("cat-drawn"),
@@ -15,7 +16,7 @@ const elementsConfig = {
         hoverImg: "../materials/cat-drawn2.png",
         defaultImg: "../materials/cat-drawn.png",
         cursor: "grab",
-        clickAction: () => window.location.href = "robotCat.html",
+        clickAction: () => window.location.href = "../projects/robotCat.html",
     },
     hero: {
         pic: document.getElementById("hero-drawn"),
