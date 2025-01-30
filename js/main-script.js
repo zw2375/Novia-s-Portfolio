@@ -143,11 +143,11 @@ function switchImg(){
     curImg = (curImg+1)%3; // 0 1 2 3
     const imgItem = document.getElementById("walking-novia");
     if(curImg == 1 ){
-        imgItem.src = "/materials/novia-walking2.png";
+        imgItem.src = "../materials/novia-walking2.png";
     }else if(curImg == 0){
-        imgItem.src = "/materials/novia-walking1.png";
+        imgItem.src = "../materials/novia-walking1.png";
     }else{
-        imgItem.src = "/materials/novia-walking3.png";
+        imgItem.src = "../materials/novia-walking3.png";
     }
 }
 setInterval(switchImg,500);
