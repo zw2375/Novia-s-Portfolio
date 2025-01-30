@@ -115,7 +115,7 @@ emotionText.textContent = "I am feeling unhappy, can you pet me?";
 emotionText.setAttribute("id","emotion-text");
 
 const emotionImg = document.createElementNS("http://www.w3.org/2000/svg", "image");
-emotionImg.setAttributeNS(null, "href", "/materials/sad-face.png"); 
+emotionImg.setAttributeNS(null, "href", "../materials/sad-face.png"); 
 emotionImg.setAttributeNS(null, "x", "660"); 
 emotionImg.setAttributeNS(null, "y", "70");
 emotionImg.setAttributeNS(null, "width", "100px"); 
