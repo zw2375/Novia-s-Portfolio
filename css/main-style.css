@@ -159,3 +159,26 @@ body{
   top:130px;
   transform: rotate(30deg);
 }
+.faces:hover{
+  cursor: grab;
+}
+#orange-face{
+  position: absolute;
+  top:450px;
+  right:300px;
+}
+#yellow-face{
+  position: absolute;
+  top:480px;
+  right:180px;
+}
+#green-face{
+  position: absolute;
+  top:430px;
+  right:90px;
+}
+#pink-face{
+  position: absolute;
+  top:460px;
+  right:-30px;
+}

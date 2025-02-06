@@ -18,14 +18,14 @@ const elementsConfig = {
         cursor: "grab",
         clickAction: () => window.location.href = "../projects/robotCat.html",
     },
-    hero: {
-        pic: document.getElementById("hero-drawn"),
-        div: document.getElementById("hero-frame"),
-        txt: document.getElementById("hero-txt"),
-        hoverImg: "../materials/superwoman-drawn.png",
-        defaultImg: "../materials/superman-drawn.png",
-        cursor: "zoom-in",
-    },
+    // hero: {
+    //     pic: document.getElementById("hero-drawn"),
+    //     div: document.getElementById("hero-frame"),
+    //     txt: document.getElementById("hero-txt"),
+    //     hoverImg: "../materials/superwoman-drawn.png",
+    //     defaultImg: "../materials/superman-drawn.png",
+    //     cursor: "zoom-in",
+    // },
     ghost: {
         pic: document.getElementById("ghost-drawn"),
         div: document.getElementById("ghost-frame"),

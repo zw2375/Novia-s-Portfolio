@@ -161,8 +161,10 @@ const landLine = rcLine.line(0,10,740,10,{
 })
 lineCanvas.appendChild(landLine);
 // draggable dec
-// dragElement(document.getElementById("dec2"));
-
+dragElement(document.getElementById("orange-face"));
+dragElement(document.getElementById("yellow-face"));
+dragElement(document.getElementById("pink-face"));
+dragElement(document.getElementById("green-face"));
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -202,4 +204,48 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
+const orangeFace = document.getElementById("orange-face");
+const orangeFaceAry = [
+    "materials/orange-face1.png",
+    "materials/orange-face2.png",
+    "materials/orange-face3.png",
+    "materials/orange-face4.png",
+]
+orangeFace.onclick = function() {
+    pickRandomFace(orangeFace, orangeFaceAry);
+};
+const yellowFace = document.getElementById("yellow-face");
+const yellowFaceAry = [
+    "materials/yellow-face1.png",
+    "materials/yellow-face2.png",
+    "materials/yellow-face3.png",
+    "materials/yellow-face4.png",
+]
+yellowFace.onclick = function() {
+    pickRandomFace(yellowFace, yellowFaceAry );
+};
+const greenFace = document.getElementById("green-face");
+const greenFaceAry = [
+    "materials/green-face1.png",
+    "materials/green-face2.png",
+    "materials/green-face3.png",
+    "materials/green-face4.png",
+]
+greenFace.onclick = function() {
+    pickRandomFace(greenFace, greenFaceAry );
+};
+const pinkFace = document.getElementById("pink-face");
+const pinkFaceAry = [
+    "materials/pink-face1.png",
+    "materials/pink-face2.png",
+    "materials/pink-face3.png",
+    "materials/pink-face4.png",
+]
+pinkFace.onclick = function() {
+    pickRandomFace(pinkFace, pinkFaceAry );
+};
+function pickRandomFace(curFace,imgAry){
+    const randomIndex = Math.floor(Math.random()* imgAry.length);
+    curFace.src = imgAry[randomIndex] ;
 }
