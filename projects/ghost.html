@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="../css/template.css">
     <!-- <base href="/" /> -->
 <style>
+    .project-details{
+        position: relative;
+    }
+    #ghost-video{
+        position: absolute;
+        top: 250px;
+        left: 200px;
+        /* transition: opacity 0.5s ease-in-out */
+    }
+    .ghosts:hover{
+        cursor: pointer;
+    }
     
 </style>
 
@@ -22,30 +34,39 @@
     <div class = "project_name">
         <h1>Ghosts</h1>
         <p class = "year">Year: 2022 </p>
-        <p class = "team_info">Team: Zhinuo Wang, Xiaorong Tian</p>
+        <p class = "team_info">Team: Zhinuo Wang, Jiayao Jin</p>
     </div>
 
     <div class = "project_details">
-        <video id="vision-video"width="800"  autoplay>
-            <source src="../materials/Vision.mp4" type="video/mp4" />
-        </video>
-        <button id="replayButton" class="btn">Click to Replay</button>
+         <img src = "../materials/film-frame1.png" width="1150">
+        
+        <video  id="ghost-video" width="680"  loop autoplay >
+            <source id="ghost-video-src" src="../materials/ghost-jars.mov" type="video/mp4"  />
+        </video> 
+        <!-- <button id="replayButton" class="btn">Click to Replay</button> -->
     </div>
     <div class = "project_description" id = "vision_description">
         <h2>Project Idea</h2>
-        <p>Vision is an interactive project designed to provide an immersive experience that explores 
+        <p>What are ghosts like? Are they just always scary and spooky? 
+            This project offers some imagination towards ghosts with different 
+            characteristics and uses interations between the ghosts and the users to show the different personalities.</p>
+        <p> Click on each ghost to see the corresponding interaction!</p>
+            <!-- <p>Vision is an interactive project designed to provide an immersive experience that explores 
             and addresses the topic of appearance anxiety.</p>
         <p>The character on the screen, wearing a hat, mirrors the user's movements as if it were a 
             reflection of the user. Initially, the character appears cheerful. However, after the user 
             takes a picture with the camera, a crowd suddenly appears behind the character, staring 
             and whispering about them. The title, Vision, serves as a reminder that appearance anxiety 
-            is merely a distorted perception. </p>
-        <h2>Project Implementation</h2>
-        <p><b>Servos</b> -- move the cat's tail and eyebrows. </p>
+            is merely a distorted perception. </p> -->
+        <!-- <h2>Project Implementation</h2> -->
+        <img class = 'ghosts' id = "friendly-ghost" src = "../materials/ghost1.svg" width="150">
+        <img class = 'ghosts'  id = "shy-ghost" src = "../materials/ghost2.svg" width="200">
+        <img class = 'ghosts' id = "city-ghost" src = "../materials/ghost3.svg" width="150">
+        <!-- <p><b>Servos</b> -- move the cat's tail and eyebrows. </p>
         <p><b>Fan</b> -- will turn on when the cat wants to blow the bubbles. </p>
         <p><b>LED panel</b> -- display the cat's emotions and needs. </p>
         <p><b>Arduino</b> -- positioned inside the cat and control physical components mentioned above.</p>
-        <button id="open-btn"class="btn">Click to see the user interaction illustration!</button>
+        <button id="open-btn"class="btn">Click to see the user interaction illustration!</button> -->
     </div>
    
     <!-- <a id >Click to see the interaction in real life!</a> -->
@@ -61,21 +82,24 @@
     </div>
    
     <script type="text/javascript">
-        const video = document.getElementById('vision-video');
-        const replayButton = document.getElementById('replayButton');
-
-        video.controls = false;
-
-        video.addEventListener('ended', () => {
-            replayButton.style.display = 'inline-block';
+        const shyGhost = document.getElementById('shy-ghost');
+        const friendlyGhost = document.getElementById('friendly-ghost');
+        const cityGhost =  document.getElementById('city-ghost');
+        const ghostVideo = document.getElementById('ghost-video');
+        shyGhost.addEventListener('click', () => {
+            changeVideoPath("../materials/ghost-avoid.mov");
         });
-
-        replayButton.addEventListener('click', () => {
-            video.currentTime = 0; // Restart video
-            video.play();
-            replayButton.style.display = 'none';
-        });
-
+        friendlyGhost.addEventListener('click',() => {
+            changeVideoPath("../materials/friendly-ghost.mov");
+        })
+        cityGhost.addEventListener('click', () => {
+            changeVideoPath("../materials/city-ghost.mov");
+        })
+        function changeVideoPath(videoPath){
+            const curVideo = document.getElementById("ghost-video-src") ;
+            curVideo.src  = videoPath;
+            ghostVideo.load();
+        }
     </script>
     <script src="../js/template.js"></script>
 </body>

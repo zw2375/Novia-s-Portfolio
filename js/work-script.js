@@ -32,6 +32,7 @@ const elementsConfig = {
         txt: document.getElementById("ghost-txt"),
         hoverAction: (pic) => { pic.style.display = "none"; },
         resetAction: (pic) => { pic.style.display = "block"; },
+        clickAction: () => window.location.href = "../projects/ghost.html",
     },
 };
 
@@ -60,8 +61,9 @@ const addHoverEffect = ({ pic, div, txt, hoverImg, defaultImg, cursor, hoverActi
     });
 };
 
-const addClickEffect = ({ txt,div, clickAction }) => {
+const addClickEffect = ({ pic,txt,div, clickAction }) => {
     if (clickAction) {
+        pic.addEventListener('click',clickAction);
         txt.addEventListener('click',clickAction);
         div.addEventListener('click', clickAction);
     }
