@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Long+Cang&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/template.css">
+    <!-- <base href="/" /> -->
+<style>
+    .body{
+        overflow: hidden;
+    }
+    .project-details{
+        position: relative;
+    }
+    #ghost-video{
+        position: absolute;
+        top: 250px;
+        left: 200px;
+    }
+    .ghosts:hover{
+        cursor: pointer;
+    }
+    .video-container{
+        overflow-y:scroll;
+        height: 700px;
+    }
+    .video-container::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+    }
+    .video-frame{
+        border-top-left-radius: 37px 140px;
+        border-top-right-radius: 23px 130px;
+        border-bottom-left-radius: 110px 19px;
+        border-bottom-right-radius: 120px 24px;
+        border: solid 3px  #28292b;
+        display: flex;
+        width: 90%;
+        margin: 50px;
+        padding-bottom: 50px;
+        background-color: white;
+        box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+        transform: rotate(-1deg);
+        transition: all 0.13s ease-in;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<title>Superhero? Not so Super on Gender</title>
+</head>
+<body >
+    <script src="https://cdn.jsdelivr.net/npm/roughjs/bundled/rough.js"></script>
+    <script src="https://unpkg.com/svg2roughjs/dist/svg2roughjs.umd.min.js"></script>
+
+    <div class = "project_name" class = "sticky-div">
+        <h1>Superhero? Not so Super on Gender</h1>
+        <p class = "year">Year: 2020 </p>
+    </div>
+
+    <div class = "project_details video-container">
+        <h2 style="background-color: white">[ Hover and scroll to see more ]</h2>
+        <div class = "video-frame">
+            <h3>[ Intro Page ]</h3>
+            <!-- <p>A brief introduction of the topic.</p> -->
+            <video  class="super-video" width="680"  loop autoplay muted>
+                <source src="../materials/super1.mov" type="video/mp4"  />
+            </video> 
+        </div>
+        <div class = "video-frame">
+            <h3>[ General Visualization ]</h3>
+            <video  class="super-video" width="680"  loop autoplay muted>
+                <source src="../materials/super2.mov" type="video/mp4"  />
+            </video>
+        </div> 
+        <div class = "video-frame">
+            <h3>[ Name Visualization ]</h3>
+            <video  class="super-video" width="680"  loop autoplay muted>
+                <source src="../materials/super3.mov" type="video/mp4"  />
+            </video> 
+        </div>
+        <div class = "video-frame">
+            <h3>[ Eye Color Visualization ]</h3>
+            <video  class="super-video" width="680"  loop autoplay muted>
+                <source src="../materials/super4.mov" type="video/mp4"  />
+            </video> 
+        </div>
+    </div>
+    <div class = "project_description"  >
+        <h2>Project Idea</h2>
+        <p> Being as one of the mainstream cultures, superheroes has gained great popularity worldwide.
+            However, their gender representation has not always been as progressive as their powers suggest.
+        <p>This project aims at providing an insight of the gender representation of superheroes. 
+            It analyzes 733 superheroes who comes from Marvel, DC and some other movies and visualize 
+            the data from different perspectives: name, appearance, figure and power. </p>
+        <p>By combining the 
+            information data set for superheroes along with images getting from superhero API, this project 
+            is able to reach for a more detailed visualization.</p>
+        
+        <p> If you are interested in this project, feel free to play with it <a href="https://zw2375.github.io/Superheroes-Not-so-Super-on-Gender/"
+            target="_blank" rel="noopener noreferrer"> here</a>!</p>
+    </div>
+    <img id = "back-icon" src = "../materials/back-icon.png"class = "sticky-div">
+   
+    <script type="text/javascript">
+    </script>
+    <script src="../js/template.js"></script>
+</body>
+</html>

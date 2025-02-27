@@ -62,7 +62,9 @@ display: none;  /* Safari and Chrome */
     top:190px;
     cursor: pointer;
 }
-  
+#superhero .intro {
+    left:690px;
+}
 
 .frame{
     height: 600px;
